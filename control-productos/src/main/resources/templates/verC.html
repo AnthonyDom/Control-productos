@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaft.org">
+<head>
+<meta charset="UTF-8"/>
+<title>LISTA DE COMPRAS</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+<body>
+<h1>LISTA DE COMPRAS</h1>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+     <img src="https://image.flaticon.com/icons/png/512/1044/1044967.png" alt="" width="70" height="74">
+    <a class="navbar-brand">Control de Productos</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span> 
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" th:href="@{/listarP}">Productos</a>
+        <a class="nav-link active" th:href="@{/listarV}">Vendedores</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<br>
+<div class="container">
+
+<h3>Datos De Las Compras</h3>
+<div class="container">
+<table class="table table-striped">
+<thead>
+<tr>
+<th>No. Compra</th>
+<th>Fecha Compra</th>
+
+</tr>
+</thead>
+<tbody>
+<tr th:each="compra: ${compras}">
+<td th:text="${compra.id}"></td> 
+<td th:text="${compra.createAt}"></td> 
+</tr>
+</tbody>
+
+</table>
+</div>
+</div>
+</body>
+</html>

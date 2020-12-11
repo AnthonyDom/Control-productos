@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaft.org">
+<head>
+<meta charset="UTF-8"/>
+<title th:text="${titulo}">Insert title here</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+<body>
+<h1 th:text="${titulo}"></h1>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+   <img src="https://image.flaticon.com/icons/png/512/1044/1044967.png" alt="" width="70" height="74">
+    <a class="navbar-brand"> Control de Productos</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span> 
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+              <a class="nav-link active" aria-current="page" th:href="@{/listarP}">Productos</a>
+        <a class="nav-link active" th:href="@{/listarV}">Vendedores</a>
+         <a class="nav-link active" th:href="@{/formV}">Registrarse</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="container">
+<table class="table table-striped">
+<thead>
+<tr>
+<th>ID</th>
+<th>NOMBRES</th>
+<th>APELLIDOS</th>
+<th>USUARIO</th>
+</tr>
+</thead>
+<tbody>
+<tr th:each="vendedor: ${vendedores}">
+<td th:text="${vendedor.id}"></td>
+<td th:text="${vendedor.nombres}"></td> 
+<td th:text="${vendedor.apellidos}"></td>
+<td th:text="${vendedor.usuario}"></td> 
+</tr>
+</tbody>
+
+</table>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaft.org">
+<head>
+<meta charset="UTF-8"/>
+<title th:text="${titulo}">Insert title here</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+<body>
+<h1 th:text="${titulo}"></h1>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+     <img src="https://image.flaticon.com/icons/png/512/1044/1044967.png" alt="" width="70" height="74">
+    <a class="navbar-brand">Control de Productos</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span> 
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" th:href="@{/listarP}">Productos</a>
+        <a class="nav-link active" th:href="@{/listarV}">Vendedores</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<br>
+<div class="container">
+<h3>Datos Personales</h3>
+<form th:action="@{/formV}" th:object="${vendedor}" method="post">
+  <div class="col-5">
+    <label class="form-label">Nombres</label>
+    <input type="text" class="form-control" id="nombre" th:field="*{nombres}"/>
+    <br>
+  </div>
+  <div class="col-5">
+    <label class="form-label">Apellidos</label>
+    <input type="text" class="form-control" id="apellido" th:field="*{apellidos}"/>
+    <br>
+  </div>
+  <div class="col-5">
+    <label class="form-label">Nombre de Usuario</label>
+    <input type="text" class="form-control" id="nombreUsuario" th:field="*{usuario}"/>
+    <br>
+  </div>
+  <div class="col-5">
+    <label class="form-label">Contraseña</label>
+    <input type="password" class="form-control" id="contraseña" th:field="*{contraseña}"/>
+    <br>
+  </div>
+  <button type="submit" class="btn btn-primary">Registrar</button>
+</form>
+</div>
+</body>
+</html>
